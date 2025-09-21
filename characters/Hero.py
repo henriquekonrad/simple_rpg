@@ -5,14 +5,25 @@ class Hero:
         self.attack = attack
         self.attack_strategy = None
 
+    def take_damage(self, damage):
+        self.hp -= damage
+        return damage
+
     def set_attack_strategy(self, strategy):
         self.attack_strategy = strategy
 
     def attack_enemy(self, enemy):
         if self.attack_strategy:
             damage = self.attack_strategy.attack(self)
-            enemy.hp -= damage
+            # Usar take_damage ao invés de modificar HP diretamente
+            if hasattr(enemy, 'take_damage'):
+                enemy.take_damage(damage)
+            else:
+                enemy.hp -= damage
             print(f"{self.name} atacou {enemy.name} causando {damage} de dano!")
         else:
-            enemy.hp -= self.attack
+            if hasattr(enemy, 'take_damage'):
+                enemy.take_damage(self.attack)
+            else:
+                enemy.hp -= self.attack
             print(f"{self.name} atacou {enemy.name} causando {self.attack} de dano!")
