@@ -30,7 +30,6 @@ goblin_base = Enemy("Goblin", 50, 10, goblin_loot)
 troll_base = Enemy("Troll", 100, 20, troll_loot)
 orc_base = Enemy("Orc", 170, 25, orc_loot)
 
-# --- Definir waves ---
 waves = [
     {
         "name": "Primeira Onda",
@@ -49,9 +48,6 @@ waves = [
     ]
     }
 ]
-
-# --- Configura estratégia inicial do herói ---
-hero.set_attack_strategy(SwordAttack())
 
 # --- Loop principal ---
 turn = 1

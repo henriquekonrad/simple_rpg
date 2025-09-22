@@ -11,6 +11,7 @@ class Hero:
 
     def set_attack_strategy(self, strategy):
         self.attack_strategy = strategy
+        print(f"[DEBUG] {self.name} mudou estratégia para: {strategy.__class__.__name__}")
 
     def attack_enemy(self, enemy):
         if self.attack_strategy:
