@@ -15,7 +15,6 @@ class Hero:
     def attack_enemy(self, enemy):
         if self.attack_strategy:
             damage = self.attack_strategy.attack(self)
-            # Usar take_damage ao invés de modificar HP diretamente
             if hasattr(enemy, 'take_damage'):
                 enemy.take_damage(damage)
             else:

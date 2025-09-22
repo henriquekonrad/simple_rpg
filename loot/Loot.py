@@ -2,27 +2,24 @@ import random
 
 class Loot:
     @staticmethod
-    def gerar_espada(tipo):
-        if tipo == "Ferro":
-            bonus = random.randint(5, 15)
-        elif tipo == "Aço":
-            bonus = random.randint(40,60)
-        return f"Espada de {tipo} +{bonus}", bonus
-    
-    @staticmethod
-    def gerar_martelo():
-        bonus = random.randint(15, 30)
-        return f"Martelo de Pedra +{bonus}", bonus
-    
-    @staticmethod
-    def gerar_armadura(tipo):
-        if tipo == "Couro":
-            bonus = random.randint(5, 15)
-        elif tipo == "Ferro":
-            bonus = random.randint(15, 25)
-        elif tipo == "Aço":
+    def gerar_upgrade_dano(nivel):
+        if nivel == 1:
+            bonus = random.randint(5, 10)
+        elif nivel == 2:
+            bonus = random.randint(10,20)
+        elif nivel == 3:
             bonus = random.randint(30,40)
-        return f"Armadura de {tipo} +{bonus}", bonus
+        return f"upgrade de dano nível {nivel} +{bonus}", bonus
+    
+    @staticmethod
+    def gerar_upgrade_defesa(nivel):
+        if nivel == 1:
+            bonus = random.randint(5, 10)
+        elif nivel == 2:
+            bonus = random.randint(10, 20)
+        elif nivel == 3:
+            bonus = random.randint(20,30)
+        return f"Armadura de {nivel} +{bonus}", bonus
     
     @staticmethod
     def gerar_pocao():

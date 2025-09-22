@@ -7,11 +7,11 @@ class ArmorDecorator:
     def name(self):
         return self.hero.name
     
-    @property 
-    def hp(self):
-        return self.hero.hp 
-    
     @property
+    def hp(self):
+        return self.hero.hp
+    
+    @hp.setter  # ← ESTAVA FALTANDO O .setter
     def hp(self, value):
         self.hero.hp = value
     
@@ -21,7 +21,6 @@ class ArmorDecorator:
     
     @property
     def defense(self):
-        # Se o herói base tem defesa, soma. Senão, só o bônus
         base_defense = getattr(self.hero, 'defense', 0)
         return base_defense + self.defense_bonus
     
