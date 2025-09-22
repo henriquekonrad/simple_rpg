@@ -1,4 +1,5 @@
 import random
+import copy
 
 class Enemy:
     def __init__(self, name, hp, attack, loot_table=None):
@@ -37,3 +38,6 @@ class Enemy:
                 item_name, bonus = item_func()
                 loot_drops.append((item_name, bonus))
         return loot_drops
+    
+    def clone(self):
+        return copy.deepcopy(self)

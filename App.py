@@ -1,6 +1,5 @@
 from builder.HeroBuilder import HeroBuilder
 from characters.Enemy import Enemy
-from prototype.EnemyPrototype import EnemyPrototype
 from strategy.AttackStrategy import SwordAttack, MagicAttack, ClawAttack
 from equipment.EquipManager import EquipmentManager
 from eventManager.EventManager import EventManager
@@ -44,18 +43,18 @@ orc_base = Enemy("Orc", 170, 25, orc_loot)
 waves = [
     {
         "name": "Primeira Onda",
-        "enemies": [EnemyPrototype(goblin_base).clone() for _ in range(3)]
+        "enemies": [goblin_base.clone() for _ in range(3)]
     },
     {
         "name": "Segunda Onda", 
-        "enemies": [EnemyPrototype(troll_base).clone() for _ in range(2)]
+        "enemies": [troll_base.clone() for _ in range(2)]
     },
     {
         "name": "Terceira Onda",
         "enemies": [
-        EnemyPrototype(goblin_base).clone(),
-        EnemyPrototype(troll_base).clone(), 
-        EnemyPrototype(orc_base).clone()
+        goblin_base.clone(),
+        troll_base.clone(), 
+        orc_base.clone()
     ]
     }
 ]
